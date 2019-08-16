@@ -105,6 +105,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 } else {
                     print("Error: \(String(describing: response.result.error))")
                     self.bitcoinPriceLabel.text = "Connection Issues"
+                    self.highPriceLabel.text = "-"
+                    self.lowPriceLabel.text = "-"
+                    self.dailyVariationLabel.text = "-"
+                    self.weeklyVariationLabel.text = "-"
+                    self.monthlyVariationLabel.text = "-"
+                    self.yearlyVariationLabel.text = "-"
                 }
             }
 
