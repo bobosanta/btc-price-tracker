@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screenshot 2019-08-16 at 15.26.32" translatesAutoresizingMaskIntoConstraints="NO" id="WFU-Sr-gr7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ecf0e5dc1424d871aee1765bb48fa22e" translatesAutoresizingMaskIntoConstraints="NO" id="WFU-Sr-gr7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4g-qN-MbT">
@@ -137,6 +137,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screenshot 2019-08-16 at 15.26.32" width="672" height="702"/>
+        <image name="ecf0e5dc1424d871aee1765bb48fa22e" width="416" height="626"/>
     </resources>
 </document>
