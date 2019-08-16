@@ -35,6 +35,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
         
+        lowPriceLabel.text = ""
+        highPriceLabel.text = ""
+        
     }
 
     
