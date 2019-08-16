@@ -13,8 +13,8 @@ import SwiftyJSON
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC"
-    let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
-    let currencySymbolArray = ["$", "R$", "$", "¥", "€", "£", "$", "Rp", "₪", "₹", "¥", "$", "kr", "$", "zł", "lei", "₽", "kr", "$", "$", "R"]
+    let currencyArray = ["Select a currency","AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
+    let currencySymbolArray = [" ","$", "R$", "$", "¥", "€", "£", "$", "Rp", "₪", "₹", "¥", "$", "kr", "$", "zł", "lei", "₽", "kr", "$", "$", "R"]
     
     var currencySelected = ""
     var finalURL = ""
@@ -26,6 +26,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var currencyPicker: UIPickerView!
     @IBOutlet weak var lowPriceLabel: UILabel!
     @IBOutlet weak var highPriceLabel: UILabel!
+    @IBOutlet weak var dailyVariationLabel: UILabel!
+    @IBOutlet weak var weeklyVariationLabel: UILabel!
+    @IBOutlet weak var monthlyVariationLabel: UILabel!
+    @IBOutlet weak var yearlyVariationLabel: UILabel!
     
 
     
@@ -34,6 +38,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
        
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
+        
+        lowPriceLabel.text = ""
+        highPriceLabel.text = ""
+        dailyVariationLabel.text = ""
+        weeklyVariationLabel.text = ""
+        monthlyVariationLabel.text = ""
+        yearlyVariationLabel.text = ""
         
     }
 
@@ -112,6 +123,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             bitcoinDataModel.lowPrice = json["low"].double!
             
+            bitcoinDataModel.dailyVariation = json["changes"]["percent"]["day"].double!
+            
+            bitcoinDataModel.weeklyVariation = json["changes"]["percent"]["week"].double!
+            
+            bitcoinDataModel.monthlyVariation = json["changes"]["percent"]["month"].double!
+            
+            bitcoinDataModel.yearlyVariation = json["changes"]["percent"]["year"].double!
+            
             updateUIWithData()
             
         } else {
@@ -125,12 +144,36 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         bitcoinPriceLabel.text = "1 BTC = " + String(bitcoinDataModel.bitcoinPrice) + " " + currencySelected
         lowPriceLabel.text = String(bitcoinDataModel.lowPrice)
         highPriceLabel.text = String(bitcoinDataModel.highPrice)
+        dailyVariationLabel.text = String(bitcoinDataModel.dailyVariation) + " %"
+        weeklyVariationLabel.text = String(bitcoinDataModel.weeklyVariation) + " %"
+        monthlyVariationLabel.text = String(bitcoinDataModel.monthlyVariation) + " %"
+        yearlyVariationLabel.text = String(bitcoinDataModel.yearlyVariation) + " %"
+        
+        if bitcoinDataModel.dailyVariation < 0 {
+            dailyVariationLabel.textColor = .red
+        } else {
+            dailyVariationLabel.textColor = .green
+        }
+        
+        if bitcoinDataModel.weeklyVariation < 0 {
+            weeklyVariationLabel.textColor = .red
+        } else {
+            weeklyVariationLabel.textColor = .green
+        }
+        
+        if bitcoinDataModel.monthlyVariation < 0 {
+            monthlyVariationLabel.textColor = .red
+        } else {
+            monthlyVariationLabel.textColor = .green
+        }
+        
+        if bitcoinDataModel.yearlyVariation < 0 {
+            yearlyVariationLabel.textColor = .red
+        } else {
+            yearlyVariationLabel.textColor = .green
+        }
         
     }
     
-
-
-
-
 }
 

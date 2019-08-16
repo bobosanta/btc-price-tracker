@@ -13,5 +13,8 @@ class BitcoinDataModel {
     var bitcoinPrice: Double = 0
     var lowPrice: Double = 0
     var highPrice: Double = 0
-    
+    var dailyVariation: Double = 0
+    var weeklyVariation: Double = 0
+    var monthlyVariation: Double = 0
+    var yearlyVariation: Double = 0
 }
