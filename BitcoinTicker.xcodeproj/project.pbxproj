@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DE00BE62306E40200D47369 /* BitcoinDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE00BE52306E40200D47369 /* BitcoinDataModel.swift */; };
 		63A618291C53C381007AF001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A618281C53C381007AF001 /* AppDelegate.swift */; };
 		63A6182B1C53C381007AF001 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6182A1C53C381007AF001 /* ViewController.swift */; };
 		63A6182E1C53C381007AF001 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6182C1C53C381007AF001 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DE00BE52306E40200D47369 /* BitcoinDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinDataModel.swift; sourceTree = "<group>"; };
 		63A618251C53C381007AF001 /* BitcoinTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A618281C53C381007AF001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A6182A1C53C381007AF001 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DE00BE32306E3D000D47369 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DE00BE52306E40200D47369 /* BitcoinDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1DE00BE42306E3E100D47369 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				63A6182A1C53C381007AF001 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		63A6181C1C53C381007AF001 = {
 			isa = PBXGroup;
 			children = (
@@ -64,8 +82,9 @@
 		63A618271C53C381007AF001 /* BitcoinTicker */ = {
 			isa = PBXGroup;
 			children = (
+				1DE00BE42306E3E100D47369 /* Controller */,
+				1DE00BE32306E3D000D47369 /* Model */,
 				63A618281C53C381007AF001 /* AppDelegate.swift */,
-				63A6182A1C53C381007AF001 /* ViewController.swift */,
 				63A6182C1C53C381007AF001 /* Main.storyboard */,
 				63A6182F1C53C381007AF001 /* Assets.xcassets */,
 				63A618311C53C381007AF001 /* LaunchScreen.storyboard */,
@@ -218,6 +237,7 @@
 			files = (
 				63A6182B1C53C381007AF001 /* ViewController.swift in Sources */,
 				63A618291C53C381007AF001 /* AppDelegate.swift in Sources */,
+				1DE00BE62306E40200D47369 /* BitcoinDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

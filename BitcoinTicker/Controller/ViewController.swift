@@ -18,10 +18,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var currencySelected = ""
     var finalURL = ""
+    
+    let bitcoinDataModel = BitcoinDataModel()
 
     //Pre-setup IBOutlets
     @IBOutlet weak var bitcoinPriceLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
+    @IBOutlet weak var lowPriceLabel: UILabel!
+    @IBOutlet weak var highPriceLabel: UILabel!
     
 
     
@@ -67,7 +71,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         label.textColor = .white
         label.textAlignment = .center
         
-        
         label.text = currencyArray[row]
         
         return label
@@ -103,11 +106,25 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         if let bitcoinResult = json["ask"].double {
             
-            bitcoinPriceLabel.text = "1BTC = " + String(bitcoinResult) + " " + currencySelected
+            bitcoinDataModel.bitcoinPrice = bitcoinResult
+            
+            bitcoinDataModel.highPrice = json["high"].double!
+            
+            bitcoinDataModel.lowPrice = json["low"].double!
+            
+            updateUIWithData()
             
         } else {
             bitcoinPriceLabel.text = "Price unavailable"
         }
+        
+    }
+    
+    func updateUIWithData() {
+        
+        bitcoinPriceLabel.text = "1 BTC = " + String(bitcoinDataModel.bitcoinPrice) + " " + currencySelected
+        lowPriceLabel.text = String(bitcoinDataModel.lowPrice)
+        highPriceLabel.text = String(bitcoinDataModel.highPrice)
         
     }
     
